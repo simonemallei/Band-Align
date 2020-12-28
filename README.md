@@ -8,9 +8,9 @@ Input (from standard input):
 - **s2**: Second sequence to align
 
 Output (to standard output):
-- **score**: The score obtained by the global alignment of the two sequences
-- **s1_align**: the sequence obtained from *s1* adding indels in order to get the maximum score for the alignment 
-- **s2_align**: the sequence obtained from *s2* adding indels in order to get the maximum score for the alignment
+- **score**: Score obtained by the global alignment of the two sequences
+- **s1_align**: Sequence obtained from *s1* adding indels in order to get the maximum score for the alignment 
+- **s2_align**: Sequence obtained from *s2* adding indels in order to get the maximum score for the alignment
 - **res_align**: for each position of the alignment, it denotes whether there is an indel or whether the two characters in the sequences are equal or not
   - **I** = Indel
   - **E** = Equal
