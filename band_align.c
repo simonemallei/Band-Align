@@ -22,7 +22,7 @@ int64_t get_score(char a, char b){
 	return matrix_score[index_a][index_b];
 }
 
-/*** Returns an upper bound of the maximum score that can be obtained using the edge of the band
+/*** Returns an upper bound of the maximum score that can be obtained using the edge of the next band
    * 
    * band: size of the band
    * l2: length of s2 (longest string to align)
@@ -30,12 +30,11 @@ int64_t get_score(char a, char b){
    */
 int64_t maxim_score(int64_t band, int64_t l2, char* s1){
 	int64_t l1 = strlen(s1);
-	int64_t num_indel = l1 - 1 + l2 - 1;
-	if (band + 1 <= l2 - 1)
-		num_indel = min(num_indel, band + 1 + l1 - (l2 - band - 1));
+	int64_t num_indel = min(band + 1, l2);
 	int64_t score = num_indel * get_score(INDEL, LETTER);
+	
 #ifdef DEBUG
-	printf("Minimum number of indels: %d\n", num_indel);
+	printf("Minimum number of indels in s1: %d\n", num_indel);
 #endif
 	int64_t i;
 	for (i = 0; i < l1; i++)
