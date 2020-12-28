@@ -1,2 +1,2 @@
 # Band-Align
-Band aligning of two sequences using BLOSUM62 matrix
+Global alignment of two sequences using BLOSUM62 matrix obtained through band.  
