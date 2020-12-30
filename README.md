@@ -21,4 +21,4 @@ Global alignment of two sequences obtained through a variation of Smith-Waterman
   
 ## Sample:
 
-In 'samples/' there are some examples of possible inputs and outputs: the 'input<i>.txt' contains the i-th input sample and 'output<i>.txt' contains the i-th result of the execution using the corresponding i-th input.
+In 'samples/' there are some examples of possible inputs and outputs: the 'input[i].txt' contains the i-th input sample and 'output[i].txt' contains the i-th result of the execution using the corresponding i-th input.
