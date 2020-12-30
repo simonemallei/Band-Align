@@ -1,0 +1,7 @@
+Global alignment score: 13
+First string:
+XTRDCXMY_PGMDRYPXZSRQVESKNIYDAMIZKPQQQGGNESX
+Second string:
+_ZMD__XYDP_M__YDVKXSZV_YQ_LYNA_CZK_RGQ_G_E_L
+Alignment string (I = Indel, E = Equal, U = Unequal):
+IUUEIIUEIEIEIIEUUUUUUEIUUIUEUEIUEEIUUEIEIEIU
