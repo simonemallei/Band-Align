@@ -4,23 +4,24 @@
 #include <stdbool.h>
 #include <assert.h>
 #include <string.h>
-
 typedef struct cell_s {
-        int64_t cell;
-        int64_t prev_x;
-        int64_t prev_y;
-        int64_t indel_s2;
+	int64_t cell;
+	int64_t prev_x;
+	int64_t prev_y;
+	int64_t indel_s2;
 } cell_s;
 
 typedef struct align_s {
-		int64_t score;
-		char* s1;
-		char* s2;
-		char* res;
+	int64_t score;
+	char* s1;
+	char* s2;
+	char* res;
 } align_s;
 
+/* Characters that represents indexes in BLOSUM62 matrix */
 char score_index[24] = {'A', 'R', 'N', 'D', 'C', 'Q', 'E', 'G', 'H', 'I', 'L', 'K', 'M', 'F', 'P', 'S', 'T', 'W', 'Y', 'V', 'B', 'Z', 'X', '*'};
 
+/* BLOSUM62 matrix scores */
 int64_t matrix_score[24][24] = {{4, -1, -2, -2, 0, -1, -1, 0, -2, -1, -1, -1, -1, -2, -1, 1, 0, -3, -2, 0, -2, -1, 0, -4}, 
  {-1, 5, 0, -2, -3, 1, 0, -2, 0, -3, -2, 2, -1, -3, -2, -1, -1, -3, -2, -3, -1, 0, -1, -4}, 
  {-2, 0, 6, 1, -3, 0, 0, 0, 1, -3, -3, 0, -2, -3, -2, 1, 0, -4, -2, -3, 3, 0, -1, -4}, 
