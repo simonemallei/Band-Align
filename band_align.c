@@ -34,7 +34,7 @@ int64_t maxim_score(int64_t band, int64_t l2, char* s1){
 	int64_t score = num_indel * get_score(INDEL, LETTER);
 	
 #ifdef DEBUG
-	printf("Minimum number of indels in s1: %d\n", num_indel);
+	printf("Minimum number of indels in s1: %ld\n", num_indel);
 #endif
 	int64_t i;
 	for (i = 0; i < l1; i++)
@@ -180,14 +180,14 @@ int main(int argc, char **argv) {
 	int64_t l1, l2;
 	
 	printf("Insert the length of the first string: \n");
-	scanf("%d", &l1);
+	scanf("%ld", &l1);
 	assert(l1 > 0 && "length of a string must be > 0");
 	char* s1 = malloc((l1 + 1) * sizeof(char));
 	printf("Insert the first string: \n");
 	scanf("%s", s1);
 	
 	printf("Insert the length of the second string: \n");
-	scanf("%d", &l2);
+	scanf("%ld", &l2);
 	assert(l2 > 0 && "length of a string must be > 0");
 	char* s2 = malloc((l2 + 1) * sizeof(char));
 	printf("Insert the second string: \n");
@@ -213,16 +213,16 @@ int main(int argc, char **argv) {
 		align_s* seq_align = band_align(s1, s2, band);
 		int64_t next_bound = maxim_score(band, l2, s1);
 #ifdef DEBUG
-		printf("Band's size: %d\n", band);
-		printf("Best score: %d\n", seq_align -> score);
-		printf("Next iteration's upper bound: %d\n", next_bound);
+		printf("Band's size: %ld\n", band);
+		printf("Best score: %ld\n", seq_align -> score);
+		printf("Next iteration's upper bound: %ld\n", next_bound);
 #endif
 		if (band + 1 >= l2 || next_bound <= seq_align -> score)
 			sol_align = seq_align;
 	}
 	/* Output to stdout */
 	
-	printf("Global alignment score: %d\n", sol_align -> score);
+	printf("Global alignment score: %ld\n", sol_align -> score);
 	printf("First string:\n%s\n", swap ? sol_align -> s2 : sol_align -> s1);
 	printf("Second string:\n%s\n", swap ? sol_align -> s1 : sol_align -> s2);
 	printf("Alignment string (I = Indel, E = Equal, U = Unequal):\n%s\n", sol_align -> res);
