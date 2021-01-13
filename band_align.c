@@ -8,6 +8,11 @@ int64_t min(int64_t a, int64_t b) {
 	return a < b ? a : b;
 }
 
+/* Given two int64_t, returns the one with the maximum value */
+int64_t max(int64_t a, int64_t b){
+	return a > b ? a : b;
+}
+
 /* Given two characters, returns the score denoted by the BLOSUM62 matrix */
 int64_t get_score(char a, char b){
 	int64_t index_a = 0;
@@ -100,7 +105,7 @@ static align_s* band_align(char* s1, char* s2, int64_t band){
 	}
 	/* Constructing M[x, y] in the band */
 	for (x = 1; x <= l2; x++){
-		for (y = 1; y <= l1; y++){
+		for (y = max(1, x - band); y <= min(l1, x + band); y++){
 			int64_t curr_pos = find_cell(x, y, l1, band);
 			/* curr_pos will be -1 if M[x, y] is not in the band */
 			if (curr_pos != -1){
